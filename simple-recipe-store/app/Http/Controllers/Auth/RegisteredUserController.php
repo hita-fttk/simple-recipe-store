@@ -12,9 +12,16 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Service\UserService;
 
 class RegisteredUserController extends Controller
 {
+    private $userService;
+
+    public function __construct() {
+        $this->userService = new UserService();
+    }
+
     /**
      * Display the registration view.
      */
@@ -36,11 +43,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $user = $this->userService->createUser($request->name, $request->email, $request->password);
 
         event(new Registered($user));
 
