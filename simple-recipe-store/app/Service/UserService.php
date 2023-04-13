@@ -13,7 +13,6 @@ class UserService
   }
 
   public function createUser(string $userName, int $age, string $password): User {
-    $age = $age+10;
     return $this->userRepository->createUser($userName, $age, $password);
   }
 }
