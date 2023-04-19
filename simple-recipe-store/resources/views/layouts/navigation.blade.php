@@ -16,6 +16,16 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('recipe')" :active="request()->routeIs('recipe')">
+                        {{ __('レシピ一覧') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('ingredient')" :active="request()->routeIs('ingredient')">
+                        {{ __('具材ページ') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
