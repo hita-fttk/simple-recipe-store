@@ -17,12 +17,12 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('recipe')" :active="request()->routeIs('recipe')">
+                    <x-nav-link :href="route('recipes')" :active="request()->routeIs('recipes')">
                         {{ __('レシピ一覧') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('ingredient')" :active="request()->routeIs('ingredient')">
+                    <x-nav-link :href="route('ingredients')" :active="request()->routeIs('ingredients')">
                         {{ __('具材ページ') }}
                     </x-nav-link>
                 </div>

@@ -22,13 +22,17 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/recipe', function () {
+Route::get('/recipes', function () {
     return view('recipe');
-})->middleware(['auth', 'verified'])->name('recipe');
+})->middleware(['auth', 'verified'])->name('recipes');
 
-Route::get('/ingredient', function () {
+Route::get('/ingredients', function () {
     return view('ingredient');
-})->middleware(['auth', 'verified'])->name('ingredient');
+})->middleware(['auth', 'verified'])->name('ingredients');
+
+Route::get('/ingredient_resister/{id}', function ($id) {
+    return view('ingredient_resister');
+})->middleware(['auth', 'verified'])->name('ingredient_resister');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
