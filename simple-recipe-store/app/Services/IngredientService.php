@@ -1,7 +1,7 @@
 <?php
-namespace App\Http\Services;
+namespace App\Services;
 
-use App\Http\Repository\IngredientRepository;
+use App\Repository\IngredientRepository;
 
 class IngredientService
 {
@@ -12,8 +12,10 @@ class IngredientService
         $this->ingredientRepository = $ingredientRepository;
     }
 
-    public function createIngredient()
+    public function showIngredient($id)
     {
+        $ingredient_id = $this->ingredientRepository->getIngredient($id);
+
 
     }
 }

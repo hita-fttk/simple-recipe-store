@@ -26,6 +26,16 @@
                         {{ __('具材ページ') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('kitchentools')" :active="request()->routeIs('kitchentools')">
+                        {{ __('調理器具ページ') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('cookings')" :active="request()->routeIs('cookings')">
+                        {{ __('調理工程ページ') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

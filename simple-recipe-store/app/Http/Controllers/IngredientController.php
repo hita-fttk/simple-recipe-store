@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
-use App\Http\Services\IngredientService;
+use App\Http\Controllers\Controller;
+use App\Models\Ingredient;
+use App\Services\IngredientService;
+
 
 class IngredientController extends Controller
 {
@@ -14,15 +18,22 @@ class IngredientController extends Controller
         $this->ingredientService = $ingredientService;
     }
 
-    public function store(Request $request)
+    public function show(Request $request)
     {
-        dd($request);
+        $id = $request->input('id');
+        $ingredient = $this->ingredientService->showIngredient($id);
 
-        $ingredientName = $request->input('ingredient_name');
-        $ingredientAmount = $request->input('ingredient_amount');
+        // $ingredientName = $request->input('ingredient_name');
+        // $ingredientAmount = $request->input('ingredient_amount');
 
-        $this->ingredientService->createIngredient($ingredientName, $ingredientAmount);
+        // $this->ingredientService->createIngredient($ingredientName, $ingredientAmount);
 
         // 以下略
+    }
+
+    public function store(Request $request)
+    {
+        $name = $request->name;
+        echo $name;
     }
 }

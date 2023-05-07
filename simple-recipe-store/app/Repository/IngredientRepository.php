@@ -1,7 +1,7 @@
 <?php
-namespace App\Http\Repository;
+namespace App\Repository;
 
-use App\Http\Models\Ingredient;
+use App\Models\Ingredient;
 
 class IngredientRepository
 {
@@ -10,6 +10,13 @@ class IngredientRepository
     public function __construct(Ingredient $ingredient)
     {
         $this->ingredient = $ingredient;
+    }
+
+    public function getIngredient($ingredient_id)
+    {
+        $ingredient = Ingredient::find($ingredient_id);
+        
+        return $ingredient;
     }
 }
 
