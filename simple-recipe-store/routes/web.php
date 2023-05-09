@@ -49,11 +49,11 @@ Route::get('/ingredient_resister',function(){
     return view('ingredient_resister');
 })->middleware(['auth', 'verified'])->name('ingredient_resister');
 
-Route::post('/ingredient_resister',function(){
-    return view('ingredient_resister');
-})->middleware(['auth', 'verified'])->name('ingredient_resister');
-
-Route::post('/ingredient_store',[IngredientController::class,'store'])->name('ingredient_store');
+Route::get('/ingredients',[IngredientController::class,'index'])->name('ingredients.list');
+Route::get('/ingredients/{id}',[IngredientController::class,'index_copy'])->name('ingredients');
+Route::post('/ingredients',[IngredientController::class,'store'])->name('ingredients.store');
+Route::put('/ingredients',[IngredientController::class,'update'])->name('ingredients.update');
+Route::delete('/ingredients',[IngredientController::class,'delete'])->name('ingredients.delete');
 
 // Route::get('/ingredient_resister/{id}',IngredientController::class,'store')->name('ingredient_store');
 // Route::get('/ingredient_resister',[IngredientController::class,'store'])->name('ingredient_store');
