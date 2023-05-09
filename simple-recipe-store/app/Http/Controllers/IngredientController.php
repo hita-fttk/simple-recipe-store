@@ -18,22 +18,53 @@ class IngredientController extends Controller
         $this->ingredientService = $ingredientService;
     }
 
+    public function index()
+    {
+        $ingredients = Ingredient::all(); 
+
+        return view('/ingredient',compact('ingredients'));
+    }
+
+    public function index_copy($id)
+    {
+        $ingredients = Ingredient::find($id); 
+
+        return view('/ingredient',compact('ingredients'));
+    }
+
     public function show(Request $request)
     {
         $id = $request->input('id');
         $ingredient = $this->ingredientService->showIngredient($id);
 
-        // $ingredientName = $request->input('ingredient_name');
-        // $ingredientAmount = $request->input('ingredient_amount');
+        return ;
 
-        // $this->ingredientService->createIngredient($ingredientName, $ingredientAmount);
-
-        // 以下略
     }
 
     public function store(Request $request)
     {
-        $name = $request->name;
-        echo $name;
+        $ingredient = $this->ingredientService->storeIngredient($request->name);
+
+        $ingredient->save();
+
+        return redirect('/ingredients');
+    }
+    public function update(Request $request)
+    {
+        $ingredient = new Ingredient;
+        $ingredient->name = $request->name;
+
+        $ingredient->save();
+
+        return redirect('/ingredients');
+    }
+    public function delete(Request $request)
+    {
+        $ingredient = new Ingredient;
+        $ingredient->name = $request->name;
+
+        $ingredient->save();
+
+        return redirect('/ingredients');
     }
 }

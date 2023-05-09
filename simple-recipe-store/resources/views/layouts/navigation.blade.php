@@ -22,7 +22,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('ingredients')" :active="request()->routeIs('ingredients')">
+                    <x-nav-link :href="route('ingredients.list')" :active="request()->routeIs('ingredients')">
                         {{ __('具材ページ') }}
                     </x-nav-link>
                 </div>

@@ -14,8 +14,13 @@ class IngredientService
 
     public function showIngredient($id)
     {
-        $ingredient_id = $this->ingredientRepository->getIngredient($id);
+        $ingredient_id = $this->ingredientRepository->showIngredient($id);
 
+
+    }
+    public function storeIngredient(string $ingredientName)
+    {
+        return $ingredient = $this->ingredientRepository->storeIngredient($ingredientName);
 
     }
 }

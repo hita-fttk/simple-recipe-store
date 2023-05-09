@@ -5,18 +5,16 @@ use App\Models\Ingredient;
 
 class IngredientRepository
 {
-    protected $ingredient;
-
-    public function __construct(Ingredient $ingredient)
-    {
-        $this->ingredient = $ingredient;
+    public function storeIngredient(string $ingredientName)
+    {        
+        return Ingredient::create([
+            'name' => $ingredientName
+        ]);
     }
 
-    public function getIngredient($ingredient_id)
+    public function showIngredient(int $ingredientId)
     {
-        $ingredient = Ingredient::find($ingredient_id);
-        
-        return $ingredient;
+        return $ingredient = Ingredient::find($ingredientId);
     }
 }
 
