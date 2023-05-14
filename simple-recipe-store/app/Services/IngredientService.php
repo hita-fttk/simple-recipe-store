@@ -20,7 +20,7 @@ class IngredientService
     }
     public function storeIngredient(string $ingredientName)
     {
-        return $ingredient = $this->ingredientRepository->storeIngredient($ingredientName);
+        return $this->ingredientRepository->createIngredient($ingredientName);
 
     }
 }

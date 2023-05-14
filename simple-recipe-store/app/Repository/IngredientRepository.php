@@ -5,7 +5,7 @@ use App\Models\Ingredient;
 
 class IngredientRepository
 {
-    public function storeIngredient(string $ingredientName)
+    public function createIngredient(string $ingredientName)
     {        
         return Ingredient::create([
             'name' => $ingredientName

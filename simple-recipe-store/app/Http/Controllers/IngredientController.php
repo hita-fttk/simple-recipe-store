@@ -45,8 +45,6 @@ class IngredientController extends Controller
     {
         $ingredient = $this->ingredientService->storeIngredient($request->name);
 
-        $ingredient->save();
-
         return redirect('/ingredients');
     }
     public function update(Request $request)
