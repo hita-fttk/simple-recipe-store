@@ -26,9 +26,10 @@ Route::get('/dashboard', function () {
 
 Route::get('/recipe.list',[RecipeController::class,'list'])->name('recipe.list');
 Route::get('/recipe.show/{id}',[RecipeController::class,'show'])->name('recipe.show');
-Route::get('/recipe.store',[RecipeController::class,'store'])->name('recipe.store');
-Route::get('/recipe.update/{id}',[RecipeController::class,'update'])->name('recipe.update');
-Route::get('/recipe.delete/{id}',[RecipeController::class,'delete'])->name('recipe.delete');
+Route::get('/recipe_resister',[RecipeController::class,'resister_view'])->name('recipe_resister');
+Route::post('/recipe.store',[RecipeController::class,'store'])->name('recipe.store');
+Route::put('/recipe.update/{id}',[RecipeController::class,'update'])->name('recipe.update');
+Route::delete('/recipe.delete/{id}',[RecipeController::class,'delete'])->name('recipe.delete');
 
 Route::get('/ingredients', function () {
     return view('ingredient');
@@ -44,16 +45,13 @@ Route::get('/cookings', function () {
 })->middleware(['auth', 'verified'])->name('cookings');
 Route::get('/cooking_resister',[CookingController::class,'store'])->name('cooking_resister');
 
-Route::get('/ingredient_resister/{id}', function () {
-    return view('ingredient_resister');
-})->middleware(['auth', 'verified'])->name('ingredient.resister');
-
 Route::get('/ingredient_resister',function(){
     return view('ingredient_resister');
 })->middleware(['auth', 'verified'])->name('ingredient_resister');
 
 Route::get('/ingredients',[IngredientController::class,'index'])->name('ingredients.list');
 Route::get('/ingredients/{id}',[IngredientController::class,'index_copy'])->name('ingredients');
+Route::get('/ingredient_resister',[IngredientController::class,'resister_view'])->name('ingredient_resister');
 Route::post('/ingredients',[IngredientController::class,'store'])->name('ingredients.store');
 Route::put('/ingredients',[IngredientController::class,'update'])->name('ingredients.update');
 Route::delete('/ingredients',[IngredientController::class,'delete'])->name('ingredients.delete');

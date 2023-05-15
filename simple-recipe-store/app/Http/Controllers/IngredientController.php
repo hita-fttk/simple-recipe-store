@@ -25,6 +25,11 @@ class IngredientController extends Controller
         return view('/ingredient',compact('ingredients'));
     }
 
+    public function resister_view()
+    {
+        return view('/ingredient_resister');
+    }
+
     public function show(Request $request)
     {
         $id = $request->input('id');
