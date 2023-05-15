@@ -1,7 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('レシピ一覧') }}
+            <a href="{{ route('recipe.list') }}">レシピ一覧</a>
+        </h2>
+        <h2 class="font-semibold text-xl text-blue-800 leading-tight">
+            <a href="{{ route('recipe_resister') }}">レシピ登録</a>
+        </h2>
+        <h2 class="font-semibold text-xl text-blue-800 leading-tight">
+            <a href="/">個人レシピ一覧</a>
         </h2>
     </x-slot>
 

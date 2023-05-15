@@ -21,6 +21,11 @@ class RecipeController extends Controller
         return view('recipe_list',compact('recipes'));
     }
 
+    public function resister_view()
+    {
+        return view('/recipe_resister');
+    }
+
     public function show(Request $request)
     {
         $id = $request->input('id');
@@ -34,7 +39,7 @@ class RecipeController extends Controller
     {
         $recipe = $this->recipeService->createRecipe($request->name,$request->category);
 
-        return redirect('/reipe.list');
+        return redirect('recipe.list');
     }
     public function update(Request $request)
     {
