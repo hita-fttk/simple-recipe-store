@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\RecipeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +24,12 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/recipes', function () {
-    return view('recipe');
-})->middleware(['auth', 'verified'])->name('recipes');
+Route::get('/recipes',[RecipeController::class,'list'])->name('recipe.list');
+Route::get('/recipes/{id}',[RecipeController::class,'show'])->name('recipe.show');
+Route::get('/recipes/new',[RecipeController::class,'store_view'])->name('recipe.store_view');
+Route::post('/recipes',[RecipeController::class,'store'])->name('recipe.store');
+Route::put('/recipes/{id}',[RecipeController::class,'update'])->name('recipe.update');
+Route::delete('/recipes/{id}',[RecipeController::class,'delete'])->name('recipe.delete');
 
 Route::get('/ingredients', function () {
     return view('ingredient');
@@ -41,16 +45,13 @@ Route::get('/cookings', function () {
 })->middleware(['auth', 'verified'])->name('cookings');
 Route::get('/cooking_resister',[CookingController::class,'store'])->name('cooking_resister');
 
-Route::get('/ingredient_resister/{id}', function () {
-    return view('ingredient_resister');
-})->middleware(['auth', 'verified'])->name('ingredient.resister');
-
 Route::get('/ingredient_resister',function(){
     return view('ingredient_resister');
 })->middleware(['auth', 'verified'])->name('ingredient_resister');
 
 Route::get('/ingredients',[IngredientController::class,'index'])->name('ingredients.list');
-Route::get('/ingredients/{id}',[IngredientController::class,'index_copy'])->name('ingredients');
+Route::get('/ingredients/{id}',[IngredientController::class,'index_copy'])->name('ingredients.show');
+Route::get('/ingredients/new',[IngredientController::class,'store_view'])->name('ingredient.store_view');
 Route::post('/ingredients',[IngredientController::class,'store'])->name('ingredients.store');
 Route::put('/ingredients',[IngredientController::class,'update'])->name('ingredients.update');
 Route::delete('/ingredients',[IngredientController::class,'delete'])->name('ingredients.delete');

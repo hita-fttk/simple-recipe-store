@@ -25,11 +25,9 @@ class IngredientController extends Controller
         return view('/ingredient',compact('ingredients'));
     }
 
-    public function index_copy($id)
+    public function store_view()
     {
-        $ingredients = Ingredient::find($id); 
-
-        return view('/ingredient',compact('ingredients'));
+        return view('/ingredient_resister');
     }
 
     public function show(Request $request)
@@ -62,7 +60,6 @@ class IngredientController extends Controller
         $ingredient->name = $request->name;
 
         $ingredient->save();
-
         return redirect('/ingredients');
     }
 }
