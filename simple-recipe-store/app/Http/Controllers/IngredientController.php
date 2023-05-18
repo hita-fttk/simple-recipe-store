@@ -25,7 +25,7 @@ class IngredientController extends Controller
         return view('/ingredient',compact('ingredients'));
     }
 
-    public function resister_view()
+    public function store_view()
     {
         return view('/ingredient_resister');
     }
