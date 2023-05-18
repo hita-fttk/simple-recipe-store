@@ -4,7 +4,7 @@
             <a href="{{ route('recipe.list') }}">レシピ一覧</a>
         </h2>
         <h2 class="font-semibold text-xl text-blue-800 leading-tight">
-            <a href="{{ route('recipe_resister') }}">レシピ登録</a>
+            <a href="{{ route('recipe.store_view') }}">レシピ登録</a>
         </h2>
         <h2 class="font-semibold text-xl text-blue-800 leading-tight">
             <a href="/">個人レシピ一覧</a>

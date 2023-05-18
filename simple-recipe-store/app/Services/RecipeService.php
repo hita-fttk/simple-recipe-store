@@ -12,14 +12,14 @@ class RecipeService
         $this->recipeRepository = $recipeRepository;
     }
 
-    public function listRecipe()
+    public function fetchRecipeList()
     {
-        return $this->recipeRepository->listRecipe();
+        return $this->recipeRepository->fetchRecipeList();
     }
 
-    public function showRecipe($id)
+    public function showRecipe($recipeId)
     {
-        $recipe = $this->recipeRepository->showRecipe($id);
+        $recipe = $this->recipeRepository->showRecipe($recipeId);
 
     }
     public function createRecipe(string $recipeName, string $recipeCategory)

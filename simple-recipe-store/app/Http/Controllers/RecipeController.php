@@ -16,20 +16,20 @@ class RecipeController extends Controller
 
     public function list()
     { 
-        $recipes = $this->recipeService->listRecipe();
+        $recipes = $this->recipeService->fetchRecipeList();
 
         return view('recipe_list',compact('recipes'));
     }
 
-    public function resister_view()
+    public function store_view()
     {
         return view('/recipe_resister');
     }
 
     public function show(Request $request)
     {
-        $id = $request->input('id');
-        $recipe = $this->recipeService->showRecipe($id);
+        $recipeId = intval($request->input('id'));
+        $recipe = $this->recipeService->showRecipe($recipeId);
 
         return view('',compact(''));
 
@@ -37,7 +37,7 @@ class RecipeController extends Controller
 
     public function store(Request $request)
     {
-        $recipe = $this->recipeService->createRecipe($request->name,$request->category);
+        $recipe = $this->recipeService->createRecipe($request->name,$request->category,);
 
         return redirect('recipe.list');
     }

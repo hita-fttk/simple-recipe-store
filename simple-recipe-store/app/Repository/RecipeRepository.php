@@ -2,6 +2,7 @@
 namespace App\Repository;
 
 use App\Models\Recipe;
+use Ramsey\Uuid\Type\Integer;
 
 class RecipeRepository
 {
@@ -13,10 +14,11 @@ class RecipeRepository
         ]);
     }
 
-    public function listRecipe()
+    public function fetchRecipeList()
     {
         return $recipe = Recipe::all();
     }
+
     public function showRecipe(int $recipeId)
     {
         return $recipe = Recipe::find($recipeId);
