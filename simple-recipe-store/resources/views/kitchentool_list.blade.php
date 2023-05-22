@@ -4,7 +4,7 @@
             {{ __('調理器具一覧') }}
         </h2>
         <h2>
-        <form action="{{ route('kitchentool_resister') }}" method="GET">
+        <form action="{{ route('kitchentool.store_view') }}" method="GET">
             <input type="hidden" name="user" value="{{ Auth::id() }}">
             <input type="submit" value="調理器具登録へ">
         </form>
@@ -16,8 +16,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("4*4でブロックを分けて自分が保有している調理器具を記載") }}
-
+                        @foreach ($kitchentools as $kitchentool)
+                            <li>{{ $kitchentool->name }}</li>
+                        @endforeach
                 </div>
             </div>
         </div>
