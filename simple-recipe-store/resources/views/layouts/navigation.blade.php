@@ -27,12 +27,12 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('kitchentools')" :active="request()->routeIs('kitchentools')">
+                    <x-nav-link :href="route('kitchentool.list')" :active="request()->routeIs('kitchentools')">
                         {{ __('調理器具ページ') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('cookings')" :active="request()->routeIs('cookings')">
+                    <x-nav-link :href="route('cooking.list')" :active="request()->routeIs('cookings')">
                         {{ __('調理工程ページ') }}
                     </x-nav-link>
                 </div>

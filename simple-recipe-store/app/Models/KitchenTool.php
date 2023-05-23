@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class KitchenTool extends Model
 {
     use HasFactory, Notifiable;
+    protected $table = 'kitchentools';
 
     /**
      * The attributes that are mass assignable.
