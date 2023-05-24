@@ -4,7 +4,7 @@
             {{ __('具材一覧') }}
         </h2>
         <h2>
-        <form action="{{ route('ingredient_resister') }}" method="GET">
+        <form action="{{ route('ingredient.store_view') }}" method="GET">
             <input type="hidden" name="id" value="{{ Auth::id() }}">
             <input type="submit" value="具材登録へ">
         </form>
