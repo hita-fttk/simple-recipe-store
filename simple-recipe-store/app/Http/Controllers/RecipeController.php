@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\RecipeService;
+use Illuminate\Support\Facades\Log;
 
 class RecipeController extends Controller
 {
@@ -23,7 +24,9 @@ class RecipeController extends Controller
 
     public function store_view()
     {
-        return view('/recipe_resister');
+        $recipeList = $this->recipeService->fetchAlltoRecipe();
+        // dd($recipeList);
+        return view('recipe_resister',compact('recipeList'));
     }
 
     public function show(Request $request)
@@ -31,7 +34,7 @@ class RecipeController extends Controller
         $recipeId = intval($request->input('id'));
         $recipe = $this->recipeService->showRecipe($recipeId);
 
-        return view('',compact(''));
+        return view('recipe_resister');
 
     }
 

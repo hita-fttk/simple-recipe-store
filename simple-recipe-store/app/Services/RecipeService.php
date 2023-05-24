@@ -16,6 +16,10 @@ class RecipeService
     {
         return $this->recipeRepository->fetchRecipeList();
     }
+    public function fetchAlltoRecipe()
+    {
+        return $this->recipeRepository->fetchAlltoRecipe();
+    }
 
     public function showRecipe($recipeId)
     {

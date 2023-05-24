@@ -27,7 +27,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/recipes',[RecipeController::class,'list'])->name('recipe.list');
-Route::get('/recipes/{id}',[RecipeController::class,'show'])->name('recipe.show');
+Route::get('/recipes/{id}',[RecipeController::class,'show'])->name('recipe.show')->whereNumber('id');
 Route::get('/recipes/new',[RecipeController::class,'store_view'])->name('recipe.store_view');
 Route::post('/recipes',[RecipeController::class,'store'])->name('recipe.store');
 Route::put('/recipes/{id}',[RecipeController::class,'update'])->name('recipe.update');
