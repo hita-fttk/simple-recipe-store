@@ -24,7 +24,7 @@ class RecipeController extends Controller
 
     public function store_view()
     {
-        $recipeList = $this->recipeService->fetchAlltoRecipe();
+        $recipeList = $this->recipeService->fetchRecipeElement();
         // dd($recipeList);
         return view('recipe_resister',compact('recipeList'));
     }
@@ -40,9 +40,10 @@ class RecipeController extends Controller
 
     public function store(Request $request)
     {
+        dd($request);
         $recipe = $this->recipeService->createRecipe($request->name,$request->category,);
 
-        return redirect('recipe.list');
+        return redirect()->route('recipe.list');
     }
     public function update(Request $request)
     {

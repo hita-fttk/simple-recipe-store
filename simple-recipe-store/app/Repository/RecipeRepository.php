@@ -23,18 +23,6 @@ class RecipeRepository
         return $recipe = Recipe::all();
     }
 
-    public function fetchAlltoRecipe()
-    {
-        $ingredients = Ingredient::all();
-        $kitchentools = KitchenTool::all();
-        $cookings = Cooking::all();
-        $recipeList = [
-            'ingredients' => $ingredients,
-            'kitchentools' => $kitchentools,
-            'cookings' => $cookings
-        ];
-        return $recipeList;
-    }
 
     public function showRecipe(int $recipeId)
     {
