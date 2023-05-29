@@ -20,7 +20,7 @@ class RecipeRepository
 
     public function fetchRecipeList()
     {
-        return $recipe = Recipe::all();
+        return $recipes = Recipe::all();
     }
 
 

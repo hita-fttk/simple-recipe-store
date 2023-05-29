@@ -14,7 +14,7 @@ class IngredientService
 
     public function fetchIngredientList()
     {
-        return $ingredients = $this->ingredientRepository->fetchIngredientList();
+        return $this->ingredientRepository->fetchIngredientList();
     }
     public function showIngredient($id)
     {
