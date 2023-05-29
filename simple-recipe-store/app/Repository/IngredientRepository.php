@@ -16,6 +16,10 @@ class IngredientRepository
     {
         return $ingredient = Ingredient::find($ingredientId);
     }
+    public function fetchIngredientList()
+    {
+        return $ingredients = Ingredient::all();
+    }
 }
 
 ?>

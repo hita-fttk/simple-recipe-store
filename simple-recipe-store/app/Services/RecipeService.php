@@ -2,14 +2,23 @@
 namespace App\Services;
 
 use App\Repository\RecipeRepository;
+use App\Repository\IngredientRepository;
+use App\Repository\KitchenToolRepository;
+use App\Repository\CookingRepository;
 
 class RecipeService
 {
     protected $recipeRepository;
+    protected $ingredientRepository;
+    protected $kitchentoolRepository;
+    protected $cookingRepository;
 
-    public function __construct(RecipeRepository $recipeRepository)
+    public function __construct(RecipeRepository $recipeRepository,IngredientRepository $ingredientRepository,KitchenToolRepository $kitchentoolRepository,CookingRepository $cookingRepository)
     {
         $this->recipeRepository = $recipeRepository;
+        $this->ingredientRepository = $ingredientRepository;
+        $this->kitchentoolRepository = $kitchentoolRepository;
+        $this->cookingRepository = $cookingRepository;
     }
 
     public function fetchRecipeList()
