@@ -2,31 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Services\IngredientService;
+use App\Services\KitchenToolService;
+use App\Services\CookingService;
 use App\Services\RecipeService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class RecipeController extends Controller
 {
     private $recipeService;
+    private $ingredientService;
+    private $kitchentoolService;
+    private $cookingService;
 
-    public function __construct(RecipeService $recipeService)
+    public function __construct(RecipeService $recipeService,IngredientService $ingredientService,KitchenToolService $kitchentoolService,CookingService $cookingService)
     {
         $this->recipeService = $recipeService;
+        $this->ingredientService = $ingredientService;
+        $this->kitchentoolService = $kitchentoolService;
+        $this->cookingService = $cookingService;
     }
 
     public function list()
     { 
         $recipes = $this->recipeService->fetchRecipeList();
+        $ingredients = $this->ingredientService->fetchIngredientList();
+        $kitchentools = $this->kitchentoolService->fetchKitchenToolList();
+        $cookings = $this->cookingService->fetchCookingList();
 
         return view('recipe_list',compact('recipes'));
     }
 
     public function store_view()
     {
-        $recipeList = $this->recipeService->fetchRecipeElement();
+        $ingredients = $this->ingredientService->fetchIngredientList();
+        $kitchentools = $this->kitchentoolService->fetchKitchenToolList();
+        $cookings = $this->cookingService->fetchCookingList();
         // dd($recipeList);
-        return view('recipe_resister',compact('recipeList'));
+        return view('recipe_resister',compact('ingredients','kitchentools','cookings'));
     }
 
     public function show(Request $request)

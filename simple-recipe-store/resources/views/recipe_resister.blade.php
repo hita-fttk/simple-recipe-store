@@ -14,19 +14,19 @@
                         <label for="cookingprocess">具材と調理器具と調理工程を選択してください</label>
                         <input type="text" list="ingredient" id="ingredientInput" name="ingredient">
                         <datalist id="ingredient">
-                            @foreach ($recipeList['ingredients'] as $ingredient)
+                            @foreach ($ingredients as $ingredient)
                             <option value="{{ $ingredient->name }}"data-id="{{ $ingredient->id }}">{{ $ingredient->name }}</option>
                             @endforeach
                         </datalist>
                         <input type="text" list="kitchentool" id="kitchentoolInput" name="kitchentool">
                         <datalist id="kitchentool">
-                            @foreach ($recipeList['kitchentools'] as $kitchentool)
+                            @foreach ($kitchentools as $kitchentool)
                             <option value="{{ $kitchentool->name }}"data-id="{{ $kitchentool->id }}">{{ $kitchentool->name }}</option>
                             @endforeach
                         </datalist>
                         <input type="text" list="cooking" id="cookingInput" name="cooking">
                         <datalist id="cooking">
-                            @foreach ($recipeList['cookings'] as $cooking)
+                            @foreach ($cookings as $cooking)
                             <option value="{{ $cooking->name }}" data-id="{{ $cooking->id }}">{{ $cooking->name }}</option>
                             @endforeach
                         </datalist><br><br>

@@ -25,20 +25,6 @@ class RecipeService
     {
         return $this->recipeRepository->fetchRecipeList();
     }
-    public function fetchRecipeElement()
-    {
-        $ingredients = $this->ingredientRepository->fetchIngredientList();
-        $kitchentools = $this->kitchentoolRepository->fetchKitchenToolList();
-        $cookings = $this->cookingRepository->fetchCookingList();
-
-        $recipeList = [
-            'ingredients' => $ingredients,
-            'kitchentools' => $kitchentools,
-            'cookings' => $cookings
-        ];
-        return $recipeList;
-
-    }
 
     public function showRecipe($recipeId)
     {
