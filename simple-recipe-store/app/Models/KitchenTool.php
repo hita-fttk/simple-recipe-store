@@ -11,6 +11,11 @@ class KitchenTool extends Model
     use HasFactory, Notifiable;
     protected $table = 'kitchentools';
 
+    public function cookingProcess()
+    {
+        return $this->hasMany(CookingProcess::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

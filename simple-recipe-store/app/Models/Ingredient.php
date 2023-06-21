@@ -10,6 +10,11 @@ class Ingredient extends Model
 {
     use HasFactory, Notifiable;
 
+    public function cookingProcessingIngredient()
+    {
+        return $this->hasMany(CookingProcessingIngredient::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
