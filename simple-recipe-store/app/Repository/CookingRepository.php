@@ -15,7 +15,7 @@ class CookingRepository
 
     public function fetchCookingList()
     {
-        return $cooking = Cooking::all();
+        return $cookings = Cooking::all();
     }
 }
 
