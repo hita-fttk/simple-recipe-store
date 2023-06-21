@@ -29,8 +29,8 @@ class KitchenToolController extends Controller
     public function store(Request $request)
     {
         $kitchentools = $this->kitchentoolService->createKitchenTool($request->name);
-        dd($kitchentools);
-        return view('kitchentool_list',compact('kitchentools'));
+        // dd($kitchentools);
+        return redirect()->route('kitchentool.list');
 
     }
 }
