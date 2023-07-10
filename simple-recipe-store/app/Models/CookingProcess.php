@@ -20,6 +20,11 @@ class CookingProcess extends Model
         return $this->belongsTo(Cooking::class);
     }
 
+    public function cookingprocessingingredient()
+    {
+        return $this->hasMany(CookingProcessingIngredient::class);
+    }
+
 
     protected $fillable = [
         'kitchentool_id',

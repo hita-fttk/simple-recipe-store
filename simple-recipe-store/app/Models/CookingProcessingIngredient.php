@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\CookingProcess;
+use App\Models\CookingProcess;
+use App\Models\RecipeCookingProcess;
+use App\Models\Ingredient;
 
 class CookingProcessingIngredient extends Model
 {
@@ -13,12 +15,22 @@ class CookingProcessingIngredient extends Model
 
     public function ingredient()
     {
-        return $this->belongsTo(Ingredient::class);
+        return $this->belongsTo(Ingredient::class,'ingredient_id');
     }
 
-    public function cookingprocess()
+    public function cookingProcess()
     {
-        return $this->belongsTo(CookingProcess::class);
+        return $this->belongsToMany(CookingProcess::class,'cooking_processing_ingredient','cooking_process_id');
+    }
+
+    public function reciepcookingprocess()
+    {
+        return $this->hasMany(RecipeCookingProcess::class);
+    }
+
+    public function recipe()
+    {
+        return $this->belongsToMany(Recipe::class);
     }
 
 
