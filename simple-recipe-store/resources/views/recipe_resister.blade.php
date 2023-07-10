@@ -49,21 +49,23 @@
                         var counter =0;
                         
                         const addButton = document.querySelector('#addtion');
+                        const deleteButton = document.querySelector('#delete');
+                        deleteButton.addEventListener('click',deleteDiv);
                         manuClonedDiv = addButton.addEventListener('click', addDiv);
                         function addDiv() {
                             const originalDiv = document.getElementById('addDiv');
                             const clonedDiv = originalDiv.cloneNode(true);
                             counter++;
-
+                            
                             clonedDiv.id = 'addDiv' + counter.toString();
-                            // console.log(clonedDiv.id);
+                            console.log(clonedDiv.id);
                             // var parentDiv = originalDiv.parentNode;
                             // parentDiv.appendChild(clonedDiv);
                             manuClonedDiv = originalDiv.parentNode.insertBefore(clonedDiv, originalDiv.nextElementSibling);
                             manuIngredientInputTag = manuClonedDiv.querySelector('#ingredientInput');
                             var ingredientInput = 'ingredientInput' + counter.toString();
                             manuIngredientInputTag.id = ingredientInput; 
-
+                            
                             manuIngredientInputTag = manuClonedDiv.querySelector('#ingredient');
                             var ingredient = 'ingredient' + counter.toString();
                             manuIngredientInputTag.id = ingredient;
@@ -71,11 +73,11 @@
                             manuIngredientInputTag = manuClonedDiv.querySelector('#ingredientId');
                             var ingredientId = 'ingredientId' + counter.toString();
                             manuIngredientInputTag.id = ingredientId;
-
+                            
                             manuIngredientInputTag = manuClonedDiv.querySelector('#kitchentoolInput');
                             var kitchentoolInput = 'kitchentoolInput' + counter.toString();
                             manuIngredientInputTag.id = kitchentoolInput; 
-
+                            
                             manuIngredientInputTag = manuClonedDiv.querySelector('#kitchentool');
                             var kitchentool = 'kitchentool' + counter.toString();
                             manuIngredientInputTag.id = kitchentool;
@@ -83,15 +85,15 @@
                             manuIngredientInputTag = manuClonedDiv.querySelector('#kitchentoolId');
                             var kitchentoolId = 'kitchentoolId' + counter.toString();
                             manuIngredientInputTag.id = kitchentoolId;
-
+                            
                             manuIngredientInputTag = manuClonedDiv.querySelector('#cookingInput');
                             var cookingInput = 'cookingInput' + counter.toString();
                             manuIngredientInputTag.id = cookingInput;
-
+                            
                             manuIngredientInputTag = manuClonedDiv.querySelector('#cooking');
                             var cooking = 'cooking' + counter.toString();
                             manuIngredientInputTag.id = cooking;
-
+                            
                             manuIngredientInputTag = manuClonedDiv.querySelector('#cookingId');
                             var cookingId = 'cookingId' + counter.toString();
                             manuIngredientInputTag.id = cookingId;
@@ -101,7 +103,7 @@
                                 var selectedValue = this.value; // 選択された表示値（Name）
                                 var ingredientNumber = ''; // 実際の値（id）を格納する変数
                                 console.log(selectedValue);
-
+                                
                                 // 選択リストの全てのオプションの中から、対応する実際の値（id）を取得 ByID('ingredient')はoptionsから選んだオブジェクト。
                                 var options = document.getElementById(ingredient).options;
                                 console.log(options);
@@ -112,17 +114,17 @@
                                         break;
                                     }
                                 }
-
+                                
                                 // 実際の値（id）をhiddenで隠した別のフィールドに設定→$request->ingredientIdで取得できる。
                                 document.getElementById(ingredientId).value = ingredientNumber;
                             });
-
+                            
                             document.getElementById(kitchentoolInput).addEventListener('input', function() {
                                 console.log(kitchentoolInput);
                                 var selectedValue = this.value; // 選択された表示値（Name）
                                 var kitchentoolNumber = ''; // 実際の値（id）を格納する変数
                                 console.log(selectedValue);
-
+                                
                                 // 選択リストの全てのオプションの中から、対応する実際の値（id）を取得 ByID('ingredient')はoptionsから選んだオブジェクト。
                                 var options = document.getElementById(kitchentool).options;
                                 console.log(options);
@@ -133,17 +135,17 @@
                                         break;
                                     }
                                 }
-
+                                
                                 // 実際の値（id）をhiddenで隠した別のフィールドに設定→$request->ingredientIdで取得できる。
                                 document.getElementById(kitchentoolId).value = kitchentoolNumber;
                             });
-
+                            
                             document.getElementById(cookingInput).addEventListener('input', function() {
                                 console.log(cookingInput);
                                 var selectedValue = this.value; // 選択された表示値（Name）
                                 var cookingNumber = ''; // 実際の値（id）を格納する変数
                                 console.log(selectedValue);
-
+                                
                                 // 選択リストの全てのオプションの中から、対応する実際の値（id）を取得 ByID('ingredient')はoptionsから選んだオブジェクト。
                                 var options = document.getElementById(cooking).options;
                                 console.log(options);
@@ -154,70 +156,70 @@
                                         break;
                                     }
                                 }
-
+                                
                                 // 実際の値（id）をhiddenで隠した別のフィールドに設定→$request->ingredientIdで取得できる。
                                 document.getElementById(cookingId).value = cookingNumber;
                             });
                             // console.log(counter);
                         }
-
-                            // var parentsElements = document.querySelectorAll('#addDiv .ingredientInput');
-                            // var datalistElements = document.querySelectorall('#addDiv .ingredient');
-                           // 選択リストの選択が行われたときに起動するイベント
+                        
+                        // var parentsElements = document.querySelectorAll('#addDiv .ingredientInput');
+                        // var datalistElements = document.querySelectorall('#addDiv .ingredient');
+                        // 選択リストの選択が行われたときに起動するイベント
                         //    for (var i=0; i <parentsElements.length; i++){
-                        //        parentsElements.item(i).addEventListener('input',function(){
-                            
-                        //         var selectedValue = this.value; // 選択された表示値（Name）
-                        //         var ingredientId = ''; // 実際の値（id）を格納する変数
-
-
-                        //         // var datalist = this.parentNode.querySelector('.ingredient');
+                            //        parentsElements.item(i).addEventListener('input',function(){
+                                
+                                //         var selectedValue = this.value; // 選択された表示値（Name）
+                                //         var ingredientId = ''; // 実際の値（id）を格納する変数
+                                
+                                
+                                //         // var datalist = this.parentNode.querySelector('.ingredient');
                         //         var options = datalistElements.item(i).options;
                         //         for(var k=0; k<options.length; k++){
                         //             if(options[k].value === selectedValue){
-                        //                 ingredientId = options[k].dataset.id;
-                        //                 break;
-                        //             }
-                        //         }
-                        //         this.parentNode.querySelector('.ingredientId').value = ingredientId;
-                        //     });
-                        // }
+                            //                 ingredientId = options[k].dataset.id;
+                            //                 break;
+                            //             }
+                            //         }
+                            //         this.parentNode.querySelector('.ingredientId').value = ingredientId;
+                            //     });
+                            // }
                             
-
-                                // // 選択リストの全てのオプションの中から、対応する実際の値（id）を取得 ByID('ingredient')はoptionsから選んだオブジェクト。
-                                // var options = 
-                                // for (var i = 0; i < options.length; i++) {
+                            
+                            // // 選択リストの全てのオプションの中から、対応する実際の値（id）を取得 ByID('ingredient')はoptionsから選んだオブジェクト。
+                            // var options = 
+                            // for (var i = 0; i < options.length; i++) {
                                 //     if (options[i].value === selectedValue) {
-                                //         ingredientId = options[i].dataset.id;
-                                //         break;
+                                    //         ingredientId = options[i].dataset.id;
+                                    //         break;
+                                    
+                                    //     }
+                                    // }
+                                    // console.log(ingredientId);
+                                    
+                                    // // 実際の値（id）をhiddenで隠した別のフィールドに設定→$request->ingredientIdで取得できる。
+                                    // // document.getElementById('ingredientId').value = ingredientId;
+                                    // // console.log(document.getElementById('ingredientId').value);
+                                    // var ingredientIdInputs = document.querySelectorAll('input[name="ingredientId[]"]');
+                                    // console.log(ingredientIdInputs);
+                                    // for (var h = 0; h < ingredientIdInputs.length; h++) {
+                                        //     ingredientIdInputs[h].value = ingredientId;
+                                        // }
+                                        // });
                                         
-                                //     }
-                                // }
-                                // console.log(ingredientId);
-
-                                // // 実際の値（id）をhiddenで隠した別のフィールドに設定→$request->ingredientIdで取得できる。
-                                // // document.getElementById('ingredientId').value = ingredientId;
-                                // // console.log(document.getElementById('ingredientId').value);
-                                // var ingredientIdInputs = document.querySelectorAll('input[name="ingredientId[]"]');
-                                // console.log(ingredientIdInputs);
-                                // for (var h = 0; h < ingredientIdInputs.length; h++) {
-                                //     ingredientIdInputs[h].value = ingredientId;
-                                // }
-                                // });
-                                
-                            
-
-                        
-                            // document.getElementById('ingredientInput').addEventListener('input', clickInput);
-                            // document.getElementById('ingredientInput1').addEventListener('input', clickInput1);
-
-                            // function clickInput(manuClonedDiv){
-                            //     console.log(manuClonedDiv);
-                            //     for (var j = 0; j < options.length; j++) {
-                            //     var selectedValue = this.value; // 選択された表示値（Name）
-                            //     var ingredientId = ''; // 実際の値（id）を格納する変数
-
-                            //     // 選択リストの全てのオプションの中から、対応する実際の値（id）を取得 ByID('ingredient')はoptionsから選んだオブジェクト。
+                                        
+                                        
+                                        
+                                        // document.getElementById('ingredientInput').addEventListener('input', clickInput);
+                                        // document.getElementById('ingredientInput1').addEventListener('input', clickInput1);
+                                        
+                                        // function clickInput(manuClonedDiv){
+                                            //     console.log(manuClonedDiv);
+                                            //     for (var j = 0; j < options.length; j++) {
+                                                //     var selectedValue = this.value; // 選択された表示値（Name）
+                                                //     var ingredientId = ''; // 実際の値（id）を格納する変数
+                                                
+                                                //     // 選択リストの全てのオプションの中から、対応する実際の値（id）を取得 ByID('ingredient')はoptionsから選んだオブジェクト。
                             //     var options = document.getElementById('ingredient').options;
                             //         if (options[j].value === selectedValue) {
                             //             ingredientId = options[j].dataset.id;
@@ -225,19 +227,19 @@
                             //         }
                             //     }
                             
-
+                            
                             //     // 実際の値（id）をhiddenで隠した別のフィールドに設定→$request->ingredientIdで取得できる。
                             //     document.getElementById('ingredientId').value = ingredientId;
                             // }
                             
-
                             
-
-
+                            
+                            
+                            
                             document.getElementById('ingredientInput').addEventListener('input', function() {
                                 var selectedValue = this.value; // 選択された表示値（Name）
                                 var ingredientId = ''; // 実際の値（id）を格納する変数
-
+                                
                                 // 選択リストの全てのオプションの中から、対応する実際の値（id）を取得 ByID('ingredient')はoptionsから選んだオブジェクト。
                                 var options = document.getElementById('ingredient').options;
                                 for (var t = 0; t < options.length; t++) {
@@ -246,14 +248,14 @@
                                         break;
                                     }
                                 }
-
+                                
                                 // 実際の値（id）をhiddenで隠した別のフィールドに設定→$request->ingredientIdで取得できる。
                                 document.getElementById('ingredientId').value = ingredientId;
                             });
                             document.getElementById('kitchentoolInput').addEventListener('input', function() {
                                 var selectedValue = this.value; // 選択された表示値（Name）
                                 var kitchentoolId = ''; // 実際の値（id）を格納する変数
-
+                                
                                 // 選択リストの全てのオプションの中から、対応する実際の値（id）を取得 ByID('ingredient')はoptionsから選んだオブジェクト。
                                 var options = document.getElementById('kitchentool').options;
                                 for (var t = 0; t < options.length; t++) {
@@ -262,14 +264,14 @@
                                         break;
                                     }
                                 }
-
+                                
                                 // 実際の値（id）をhiddenで隠した別のフィールドに設定→$request->ingredientIdで取得できる。
                                 document.getElementById('kitchentoolId').value = kitchentoolId;
                             });
                             document.getElementById('cookingInput').addEventListener('input', function() {
                                 var selectedValue = this.value; // 選択された表示値（Name）
                                 var cookingId = ''; // 実際の値（id）を格納する変数
-
+                                
                                 // 選択リストの全てのオプションの中から、対応する実際の値（id）を取得 ByID('ingredient')はoptionsから選んだオブジェクト。
                                 var options = document.getElementById('cooking').options;
                                 for (var t = 0; t < options.length; t++) {
@@ -278,17 +280,22 @@
                                         break;
                                     }
                                 }
-
+                                
                                 // 実際の値（id）をhiddenで隠した別のフィールドに設定→$request->ingredientIdで取得できる。
                                 document.getElementById('cookingId').value = cookingId;
                             });
+                            function deleteDiv(){
+                                clonedDeleteDivId = 'addDiv' + counter.toString();
+                                let element = document.getElementById(clonedDeleteDivId);
+                                element.remove();
+                            }
                         
 
 
-
-
+                            
+                            
                     </script>
                 </div>
             </div>
         </div>
-</x-app-layout>
+    </x-app-layout>
