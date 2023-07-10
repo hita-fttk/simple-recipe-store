@@ -22,6 +22,10 @@ class CookingService
     {
         return $this->cookingRepository->createCooking($cookingName);
     }
+    public function deleteCooking($id)
+    {
+        return $this->cookingRepository->deleteCooking($id);
+    }
 }
 
 ?>

@@ -30,14 +30,6 @@ class IngredientController extends Controller
         return view('/ingredient_resister');
     }
 
-    public function show(Request $request)
-    {
-        $id = $request->input('id');
-        $ingredient = $this->ingredientService->showIngredient($id);
-
-        return ;
-
-    }
 
     public function store(Request $request)
     {
@@ -54,12 +46,9 @@ class IngredientController extends Controller
 
         return redirect('/ingredients');
     }
-    public function delete(Request $request)
+    public function delete($id)
     {
-        $ingredient = new Ingredient;
-        $ingredient->name = $request->name;
-
-        $ingredient->save();
-        return redirect('/ingredients');
+        $this->ingredientService->deleteIngredient($id);
+        return redirect()->route('ingredients.list');
     }
 }

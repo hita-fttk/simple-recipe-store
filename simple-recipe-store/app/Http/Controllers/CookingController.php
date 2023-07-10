@@ -30,6 +30,10 @@ class CookingController extends Controller
     {
         $cookings = $this->cookingService->createCooking($request->name);
         return redirect()->route('cooking.list');
-
+    }
+    public function delete($id)
+    {
+        $this->cookingService->deleteCooking($id);
+        return redirect()->route('cooking.list');
     }
 }

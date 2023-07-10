@@ -16,11 +16,14 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <ul>
                         @foreach ($ingredients as $ingredient)
                             <li>{{ $ingredient->name }}</li>
+                            <form action="{{ route('ingredients.delete',['id' => $ingredient->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">この具材を削除する</button>
+                            </form>
                         @endforeach
-                    </ul>
                 </div>
             </div>
         </div>

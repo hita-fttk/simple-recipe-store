@@ -4,10 +4,10 @@
             {{ __('調理工程一覧') }}
         </h2>
         <h2>
-        <form action="{{ route('cooking.store_view') }}" method="GET">
-            <input type="hidden" name="user" value="{{ Auth::id() }}">
-            <input type="submit" value="調理工程登録へ">
-        </form>
+            <form action="{{ route('cooking.store_view') }}" method="GET">
+                <input type="hidden" name="user" value="{{ Auth::id() }}">
+                <input type="submit" value="調理工程登録へ">
+            </form>
         </h2>
     </x-slot>
 
@@ -17,7 +17,12 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     @foreach ($cookings as $cooking)
-                        <li>{{ $cooking->name }}</li>
+                    <li>{{ $cooking->name }}</li>
+                    <form action="{{ route('cooking.delete',['id' => $cooking->id]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">この具材を削除する</button>
+                    </form>
                     @endforeach
                 </div>
             </div>

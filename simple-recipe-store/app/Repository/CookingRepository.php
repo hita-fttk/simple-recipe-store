@@ -17,6 +17,11 @@ class CookingRepository
     {
         return $cookings = Cooking::all();
     }
+    public function deleteCooking($id)
+    {
+        $deleteCooking = Cooking::find($id);
+        return $deleteCooking->delete();
+    }
 }
 
 ?>
