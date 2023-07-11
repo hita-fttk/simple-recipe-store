@@ -17,6 +17,11 @@ class KitchenToolRepository
     {
         return $kitchentool = KitchenTool::all();
     }
+    public function deleteKitchenTool($id)
+    {
+        $kitchentool = KitchenTool::find($id);
+        return $kitchentool->delete();
+    }
 }
 
 ?>

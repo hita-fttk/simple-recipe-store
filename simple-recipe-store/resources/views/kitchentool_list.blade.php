@@ -18,6 +18,11 @@
                 <div class="p-6 text-gray-900">
                         @foreach ($kitchentools as $kitchentool)
                             <li>{{ $kitchentool->name }}</li>
+                            <form action="{{ route('kitchentool.delete',['id' => $kitchentool->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">このレシピを削除する</button>
+                            </form>
                         @endforeach
                 </div>
             </div>

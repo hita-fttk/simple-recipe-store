@@ -29,7 +29,11 @@ class CookingController extends Controller
     public function store(Request $request)
     {
         $cookings = $this->cookingService->createCooking($request->name);
-        return view('cooking_list',compact('cookings'));
-
+        return redirect()->route('cooking.list');
+    }
+    public function delete($id)
+    {
+        $this->cookingService->deleteCooking($id);
+        return redirect()->route('cooking.list');
     }
 }

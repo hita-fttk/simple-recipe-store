@@ -16,15 +16,18 @@ class IngredientService
     {
         return $this->ingredientRepository->fetchIngredientList();
     }
-    public function showIngredient($id)
+    public function fetchIngredients($id)
     {
-        $ingredient_id = $this->ingredientRepository->showIngredient($id);
+        return $this->ingredientRepository->fetchIngredients($id);
 
     }
     public function storeIngredient(string $ingredientName)
     {
         return $this->ingredientRepository->createIngredient($ingredientName);
-
+    }
+    public function deleteIngredient($id)
+    {
+        return $this->ingredientRepository->deleteIngredient($id);
     }
 }
 

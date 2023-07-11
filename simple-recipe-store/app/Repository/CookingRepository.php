@@ -15,7 +15,12 @@ class CookingRepository
 
     public function fetchCookingList()
     {
-        return $cooking = Cooking::all();
+        return $cookings = Cooking::all();
+    }
+    public function deleteCooking($id)
+    {
+        $deleteCooking = Cooking::find($id);
+        return $deleteCooking->delete();
     }
 }
 

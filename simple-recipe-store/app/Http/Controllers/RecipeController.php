@@ -43,34 +43,43 @@ class RecipeController extends Controller
         return view('recipe_resister',compact('ingredients','kitchentools','cookings'));
     }
 
-    public function show(Request $request)
-    {
-        $recipeId = intval($request->input('id'));
-        $recipe = $this->recipeService->showRecipe($recipeId);
-
-        return view('recipe_resister');
-
-    }
-
     public function store(Request $request)
     {
-        dd($request);
-        $recipe = $this->recipeService->createRecipe($request->name,$request->category,);
+        // dd($request);
+        $recipeId = $this->recipeService->createRecipe($request->name,$request->category);
+        // Repositoryでfor文を回す文法
+        // $createCookingProcess = $this->recipeService->createCookingProcess($request->kitchentoolId,$request->cookingId,$request->time);
 
+        // Service内で$requestの必要なプロパティを$cookingProcessAtributesに格納する文法
+        $cookingProcessRecords = $this->recipeService->createCookingProcess($request->kitchentoolId,$request->cookingId,$request->time);
+        // dd($cookingprocess);
+        $cooking_processing_ingredient_ids = $this->recipeService->createCookingProcessingIngredient($request->ingredientId,$cookingProcessRecords);
+        $this->recipeService->createRecipeCookingProcess($recipeId,$cooking_processing_ingredient_ids);
         return redirect()->route('recipe.list');
     }
-    public function update(Request $request)
-    {
-        $id = $request->input('id');
-        $recipe = $this->recipeService($id);
 
-        return redirect('/recipe.show');
+    public function show($id)
+    {
+        // dd($id);
+        $recipes = $this->recipeService->fetchRecipes($id);
+        $ingredients = $this->ingredientService->fetchIngredientList();
+        $kitchentools = $this->kitchentoolService->fetchKitchenToolList();
+        $cookings = $this->cookingService->fetchCookingList();
+        $recipeDetails = $this->recipeService->showRecipe($id);
+
+        return view('recipe_detail', compact('recipes','ingredients','kitchentools','cookings','recipeDetails'));
+
     }
-    public function delete(Request $request)
-    {
-        $id = $request->input('id');
-        $recipe = $this->recipeService($id);
 
-        return redirect('/recipe.list');
+    public function update($id, Request $request)
+    {
+        $this->recipeService->updateRecipe($id, $request->updateIngredient, $request->updateKitchenTool, $request->updateTime, $request->updateCooking);
+        
+        return redirect()->route('recipe.list');
+    }
+    public function delete($id)
+    {
+        $this->recipeService->recipeDelete($id);
+        return redirect()->route('recipe.list');
     }
 }

@@ -20,6 +20,15 @@ class IngredientRepository
     {
         return $ingredients = Ingredient::all();
     }
+    public function fetchIngredients($id)
+    {
+        return $ingredients = Ingredient::find($id);
+    }
+    public function deleteIngredient($id)
+    {
+        $deleteIngredinet = Ingredient::find($id);
+        return $deleteIngredinet->delete();
+    }
 }
 
 ?>

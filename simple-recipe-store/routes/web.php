@@ -36,17 +36,19 @@ Route::delete('/recipes/{id}',[RecipeController::class,'delete'])->name('recipe.
 Route::get('/cookings',[CookingController::class,'list'])->name('cooking.list');
 Route::get('/cookings/new',[CookingController::class,'store_view'])->name('cooking.store_view');
 Route::post('/cookings',[CookingController::class,'store'])->name('cooking.store');
+Route::delete('/cookings/{id}',[CookingController::class,'delete'])->name('cooking.delete');
 
 Route::get('/kitchentools',[KitchenToolController::class,'list'])->name('kitchentool.list');
 Route::get('/kitchentools/new',[KitchenToolController::class,'store_view'])->name('kitchentool.store_view');
 Route::post('/kitchentools',[KitchenToolController::class,'store'])->name('kitchentool.store');
+Route::delete('/kitchentools/{id}',[KitchenToolController::class,'delete'])->name('kitchentool.delete');
 
 Route::get('/ingredients',[IngredientController::class,'index'])->name('ingredients.list');
-Route::get('/ingredients/{id}',[IngredientController::class,'index_copy'])->name('ingredients.show');
+// Route::get('/ingredients/{id}',[IngredientController::class,'index_copy'])->name('ingredients.show');
 Route::get('/ingredients/new',[IngredientController::class,'store_view'])->name('ingredient.store_view');
 Route::post('/ingredients',[IngredientController::class,'store'])->name('ingredients.store');
 Route::put('/ingredients',[IngredientController::class,'update'])->name('ingredients.update');
-Route::delete('/ingredients',[IngredientController::class,'delete'])->name('ingredients.delete');
+Route::delete('/ingredients/{id}',[IngredientController::class,'delete'])->name('ingredients.delete');
 
 // Route::get('/ingredient_resister/{id}',IngredientController::class,'store')->name('ingredient_store');
 // Route::get('/ingredient_resister',[IngredientController::class,'store'])->name('ingredient_store');

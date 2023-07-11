@@ -20,7 +20,10 @@ class KitchenToolService
     public function createKitchenTool(string $kitchentoolName)
     {
         return $this->kitchentoolRepository->createKitchenTool($kitchentoolName);
-
+    }
+    public function deleteKitchenTool($id)
+    {
+        return $this->kitchentoolRepository->deleteKitchenTool($id);
     }
 }
 
