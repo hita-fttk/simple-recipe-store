@@ -55,14 +55,5 @@ I don't test environments under Linux and Mac.
 
 # Author
 
-* Hayabusa
-* R&D Center
-* Twitter : https://twitter.com/Cpp_Learning
-
-# License
-
-"Physics_Sim_Py" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
-
-Enjoy making cute physics simulations!
-
-Thank you!
+* hita-fttk
+* higaki-tahanori
