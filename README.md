@@ -1,16 +1,13 @@
 # simple-recipe-store
-# Physics_Sim_Py
 
-"Physics_Sim_Py" is a tutorial of physics simulations with Python.
+"simple-recipe-store"はレシピを文章で登録するのではなく「具材」、「調理器具」、「調理方法」、「時間」の要素で構成されたある種のBlockの組み合わせで登録するサイトです。
 
 # DEMO
 
-You can learn how to making cute physics simulations (looks retro game).
+初めに任意の「具材」、「調理器具」、「調理方法」、「時間」をヘッダーのリンクから登録してください。
+そのあとそれらを組み合わせてレシピを登録してください。
 
 ![](https://cpp-learning.com/wp-content/uploads/2019/05/pyxel-190505-161951.gif)
-
-This animation is a "Cat playing on trampoline"!
-You can get basic skills for making physics simulations.
 
 # Features
 
@@ -24,8 +21,7 @@ You can feel free to enjoy making pixel art style physics simulations.
 
 # Requirement
 
-* Python 3.6.5
-* pyxel 1.0.2
+* PHP 8.0
 
 Environments under [Anaconda for Windows](https://www.anaconda.com/distribution/) is tested.
 
