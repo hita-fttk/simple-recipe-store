@@ -7,7 +7,7 @@
 初めに任意の「具材」、「調理器具」、「調理方法」、「時間」をヘッダーのリンクから登録してください。
 そのあとそれらを組み合わせてレシピを登録してください。
 
-![](https://cpp-learning.com/wp-content/uploads/2019/05/pyxel-190505-161951.gif)
+![image](https://github.com/hita-fttk/express_tutorial/assets/78365187/16a1bb05-c85b-4fb5-b1b6-d4ae0b49ef7e)
 
 # Features
 
