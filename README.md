@@ -14,7 +14,7 @@
 * PHP 8.0
 * docker-compose
 # Installation
-1 初めに git clone 本リポジトリ
+1 初めに git clone 本リポジトリ  
 2 docker-compose up -> docker-compose ps でコンテナが起動しているかとコンテナ名（app）確認後、
 3 docker exec -it app bashでコンテナ内にアクセス
 4 cd simple-recipe-store でsimple-recipe-storeディレクトリに移動
