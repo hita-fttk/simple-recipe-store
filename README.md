@@ -23,7 +23,7 @@
 6 composer install ※結構時間がかかります。。。  
 7 .env.exampleファイルをもとに.envファイルを作成　※gitignoreで.envファイルを除いてます。  
 8 php artisan key:generateで.envファイルのAPP＿KEYの値を設定  
-9 npm run build でviteを有効化させる。  
+9 npm install と npm run build でviteを有効化させる。  
 10 ブラウザでlocalhostの8000にアクセス  
 11 dashboard画面右上の[register]でユーザー登録  
 11 完了  
