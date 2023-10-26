@@ -12,8 +12,18 @@
 # Requirement
 
 * PHP 8.0
+* docker-compose
 # Installation
-aaa
+1 初めに git clone 本リポジトリ
+2 docker-compose up -> docker-compose ps でコンテナが起動しているかとコンテナ名（app）確認後、
+3 docker exec -it app bashでコンテナ内にアクセス
+4 cd simple-recipe-store でsimple-recipe-storeディレクトリに移動
+5 composer install ※結構時間がかかります。。。
+6 .env.exampleファイルをもとに.envファイルを作成　※gitignoreで.envファイルを除いてます。
+7 php artisan key:generateで.envファイルのAPP＿KEYの値を設定
+8 npm run build でviteを有効化させる。
+9　dashboard画面右上の[register]でユーザー登録
+10 完了
 
 # Note
 
