@@ -14,6 +14,7 @@
 * docker-compose
   
 # Installation
+このサイトを参考にしております。　https://www.torat.jp/laravel-docker-lemp/  
 1 初めに git clone 本リポジトリをローカルに持ってくる。  
 2 docker-compose up　その後、docker-compose ps でコンテナが起動しているかとコンテナ名（app）確認後、  
 3 docker exec -it app bashでコンテナ内にアクセス  
