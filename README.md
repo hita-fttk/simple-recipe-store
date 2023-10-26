@@ -11,8 +11,8 @@
 
 # Requirement
 
-* PHP 8.0
 * docker-compose
+  
 # Installation
 1 初めに git clone 本リポジトリをローカルに持ってくる。  
 2 docker-compose up -> docker-compose ps でコンテナが起動しているかとコンテナ名（app）確認後、  
