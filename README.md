@@ -22,8 +22,9 @@
 6 .env.exampleファイルをもとに.envファイルを作成　※gitignoreで.envファイルを除いてます。  
 7 php artisan key:generateで.envファイルのAPP＿KEYの値を設定  
 8 npm run build でviteを有効化させる。  
-9 dashboard画面右上の[register]でユーザー登録  
-10 完了  
+9 ブラウザでlocalhostの8000にアクセス  
+10 dashboard画面右上の[register]でユーザー登録  
+11 完了  
 
 # Note
 
