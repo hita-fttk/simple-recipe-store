@@ -15,9 +15,9 @@
   
 # Installation
 1 初めに git clone 本リポジトリをローカルに持ってくる。  
-2 docker-compose up -> docker-compose ps でコンテナが起動しているかとコンテナ名（app）確認後、  
+2 docker-compose up=>docker-compose ps でコンテナが起動しているかとコンテナ名（app）確認後、  
 3 docker exec -it app bashでコンテナ内にアクセス  
-4 コンテナ内でcd simple-recipe-store でsimple-recipe-storeディレクトリに移動 -> chmod -R ./storage　777 で権限を変更  
+4 コンテナ内でcd simple-recipe-store でsimple-recipe-storeディレクトリに移動 =>chmod -R ./storage　777 で権限を変更  
 5 composer install ※結構時間がかかります。。。  
 6 .env.exampleファイルをもとに.envファイルを作成　※gitignoreで.envファイルを除いてます。  
 7 php artisan key:generateで.envファイルのAPP＿KEYの値を設定  
